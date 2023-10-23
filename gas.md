@@ -1,28 +1,33 @@
-# Gas
+# Demystifying Gas in Blockchain Transactions
 
-## Gas Price
+## Gas Price: Akin to Gasoline Prices
 
-We can consider the `gas price` is the same concept as `gasoline price`.
+Understanding gas in blockchain transactions is akin to grasping the concept of gasoline prices when fueling up your car. At the gas station, the displayed price per liter guides your decision on how much money you'll spend.
 
-When we drive to the gas station, the machine shows us the current price of the gasoline per litre.
+In the blockchain world, the `gas price` mirrors this idea. Just as you consider the cost of each liter of gasoline, users assess the price of each unit of gas when conducting transactions.
 
-The `gas price` in blockchain transactions follows the same concept.
-
-Let's say you drive to the gas station, and fill up your car. How much money should your pay?
+Consider this analogy: When you fill up your car, the total cost is calculated as follows:
 
 ```txt
-gasoline price * litres you filled = the total money you should pay
+gasoline price * liters filled = total cost
 ```
 
-e.g: The gasoline price is 3$ per litre, and you filled 10 litres, than you should pay 3 * 10 = 30 dollars.
+For instance, if the gasoline price is 3$ per liter and you fill up 10 liters, your total cost would be $3 * 10 = $30.
 
-It's easy, right?
+## Deciphering Transaction Fees
 
-But what is the `litres` concept in blockchain transaction?
+But how does this translate to blockchain transactions?
 
-There is a `gaslimit & usage by Txn` property in a blockchain transaction.
+In blockchain transactions, we replace liters with the concept of `gaslimit & Usage by Txn`.
 
-The `gaslimit` tells the maximum gas the transaction may cost while the `Usage by Txn` tells the actual gas it costs.
+- `Gas Limit`: The maximum gas the transaction may cost.
+- `Usage by Txn`: The actual gas consumed during the transaction.
+
+The total fee is then determined by the formula:
+
+```txt
+gas price * usage by txn = total fee
+```
 
 Now the total fee we should pay is quite clear:
 
@@ -30,13 +35,11 @@ Now the total fee we should pay is quite clear:
 gas price * usage by txn = the total fee we should pay
 ```
 
-Consider we have a transaction listing like below:
+Lets break down a transaction example to illustrate([view full list](https://sepolia.etherscan.io/tx/0x71e6f621619559bcbb553550dd89e5d0aa00337e027a6fed1755216af58f4fe9)):
 | property | data |
 |----------|------|
 | Gas Price | 0.30000003 Gwei (0.00000000030000003 ETH) |
 | Gas Limit & Usage by Txn | 63,000 \| 21,000 (33.33%) |
 | Transaction Fee |  0.00000630000063 ETH |
 
-Then we know the transaction fee is actually `0.30000003 Gwei * 21000 = 6300.00063 Gwei` which equals to 0.`00000630000063 ETH`.
-
-Actually all the data is already displayed in the blockchain explore, but we should know how these data are calculated.
+In this example, the transaction fee is calculated as  `0.30000003 Gwei * 21000 = 6300.00063 Gwei`, equivalent to 0.`00000630000063 ETH`. You can use the [Ethereum Unit Converter](https://eth-converter.com/) for easy conversion.
