@@ -29,12 +29,6 @@ The total fee is then determined by the formula:
 gas price * usage by txn = total fee
 ```
 
-Now the total fee we should pay is quite clear:
-
-```txt
-gas price * usage by txn = the total fee we should pay
-```
-
 Lets break down a transaction example to illustrate([view full list](https://sepolia.etherscan.io/tx/0x4b7ed73abdfcdb06d90dcd06af3c7802959db9acff8381e046aca7e74ede38a3)):
 
 | property | data |
